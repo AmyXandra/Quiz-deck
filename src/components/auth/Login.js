@@ -21,36 +21,54 @@ export default function Login() {
     };
     const handleSubmit = (dataItem) => alert(JSON.stringify(dataItem, null, 2));
     return (
-        <Form
-            onSubmit={handleSubmit}
-            render={(formRenderProps) => (
-                <FormElement style={{ maxWidth: 650 }}>
-                    <fieldset className={'k-form-fieldset'}>
-                        <legend className={'k-form-legend'}>Please fill in the fields:</legend>
-                        <div className="mb-3">
-                            <Field name={'firstName'} component={Input} label={'First name'} />
-                        </div>
+        <div>
+            <div className="row">
+                <div className="col-md-4"></div>
+                <div className="col-md-8">
+                    <Form
+                        onSubmit={handleSubmit}
+                        render={(formRenderProps) => (
+                            <FormElement style={{ maxWidth: 650 }}>
+                                <fieldset className={"k-form-fieldset"}>
+                                    <legend className={"k-form-legend"}>
+                                        Please fill in the fields:
+                                    </legend>
+                                    <div className="mb-3">
+                                        <Field
+                                            name={"firstName"}
+                                            component={Input}
+                                            label={"First name"}
+                                        />
+                                    </div>
 
-                        <div className="mb-3">
-                            <Field name={'lastName'} component={Input} label={'Last name'} />
-                        </div>
+                                    <div className="mb-3">
+                                        <Field name={"lastName"} component={Input} label={"Last name"} />
+                                    </div>
 
-                        <div className="mb-3">
-                            <Field name={"email"} type={"email"} component={EmailInput} label={"Email"} validator={emailValidator} />
-                        </div>
-                    </fieldset>
-                    <div className="k-form-buttons">
-                        <button
-                            type={'submit'}
-                            className="k-button"
-                            disabled={!formRenderProps.allowSubmit}
-                        >
-                            Submit
-              </button>
-                    </div>
-                </FormElement>
-            )}
-
-        />
+                                    <div className="mb-3">
+                                        <Field
+                                            name={"email"}
+                                            type={"email"}
+                                            component={EmailInput}
+                                            label={"Email"}
+                                            validator={emailValidator}
+                                        />
+                                    </div>
+                                </fieldset>
+                                <div className="k-form-buttons">
+                                    <button
+                                        type={"submit"}
+                                        className="k-button"
+                                        disabled={!formRenderProps.allowSubmit}
+                                    >
+                                        Submit
+                                    </button>
+                                </div>
+                            </FormElement>
+                        )}
+                    />
+                </div>
+            </div>
+        </div>
     );
 }

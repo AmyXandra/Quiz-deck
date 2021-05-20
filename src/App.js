@@ -1,17 +1,32 @@
-import './App.css';
-import '@progress/kendo-theme-default/dist/all.css';
-// import Login from './components/auth/Login';
+// import './App.css';
+import React from 'react';
+import '@progress/kendo-theme-bootstrap/dist/all.css';
+import * as ReactDOM from "react-dom";
+import { HashRouter,BrowserRouter, Switch, Route } from "react-router-dom";
+import Login from './components/auth/Login';
+import Register from './components/auth/Register';
 import Landing from './components/Landing';
-  // Set the variables here.
+import Dashboard from './components/Dashboard';
+import CreateQuiz from './components/CreateQuiz';
+import MyQuizes from './components/MyQuizes';
+
 
 
 function App() {
   return (
-    <div className="App">
-      {/* <Login/> */}
-      <Landing/>
-    </div>
+    <React.Fragment>
+      <BrowserRouter>
+          <Switch>
+            <Route path="/" component={CreateQuiz} />
+            <Route path="/login" component={Login} />
+            <Route path="/register" component={Register} />
+            <Route path="/dashboard" component={Dashboard} />
+          </Switch>
+      </BrowserRouter>
+    </React.Fragment>
   );
 }
 
 export default App;
+
+
