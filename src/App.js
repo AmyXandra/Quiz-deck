@@ -1,8 +1,7 @@
-// import './App.css';
 import React from 'react';
 import '@progress/kendo-theme-bootstrap/dist/all.css';
-import * as ReactDOM from "react-dom";
-import { HashRouter,BrowserRouter, Switch, Route } from "react-router-dom";
+// import * as ReactDOM from "react-dom";
+import { BrowserRouter, Switch, Route } from "react-router-dom";
 import Login from './components/auth/Login';
 import Register from './components/auth/Register';
 import Landing from './components/Landing';

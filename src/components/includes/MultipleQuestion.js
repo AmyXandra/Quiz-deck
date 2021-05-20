@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, Fragment, useCallback } from 'react';
 // import * as ReactDOM from 'react-dom';
 import { Dialog, DialogActionsBar } from '@progress/kendo-react-dialogs';
 // import { FormCheckbox, FormRadioGroup } from "./form-components";
@@ -15,35 +15,68 @@ import { RadioButton } from "@progress/kendo-react-inputs";
 
 export default function MultipleQuestion() {
     const [visible, setVisible] = useState(false);
+    const toggleDialog = () => {
+        setVisible(!visible);
+    };
 
     const [selectedValue, setSelectedValue] = useState("first");
-    const handleChange = React.useCallback(
+    const handleChange = useCallback(
         (e) => {
             setSelectedValue(e.value);
         },
         [setSelectedValue]
     );
 
+
     const [input, setInput] = useState({
-        company_id: '', customer_name: '', customer_phone: '', customer_email: '', 
+        questionText: '', answerOptions: []
     });
+    const { questionText } = input;
 
-    const { customer_name, customer_phone, customer_email, customer_gender} = input;
+    // Handles question text name
+    const handleInputName = (event) => {
+        const { name, value } = event.target;
+        setInput(input => ({ ...input, [name]: value }));
+    }
+    console.log("input", input)
 
+    // Handles question answer options
+    const [inputList, setInputList] = useState([{ answeText: "", isCorrect: false }]);
 
-    // const handleChange = (event) => {
-    //     const { name, value } = event.target;
-    //     setInput(input => ({ ...input, [name]: value }));
-
-    //     if (event.target.name === 'customer_country') {
-    //         getCountryStates(document.getElementById('io-' + event.target.value).getAttribute('io'));
-    //     }
-
-    // }
-
-    const toggleDialog = () => {
-        setVisible(!visible);
+    // handle input change
+    const handleInputChange = (e, index) => {
+        const { name, value } = e.target;
+        const list = [...inputList];
+        list[index][name] = value;
+        setInputList(list);
     };
+
+    // handle click event of the Remove button
+    const handleRemoveClick = index => {
+        const list = [...inputList];
+        list.splice(index, 1);
+        setInputList(list);
+    };
+    // handle click event of the Add button
+    const handleAddClick = () => {
+        setInputList([...inputList, { firstName: "", lastName: "" }]);
+    };
+
+    //   const handleAddFields = () => {
+    //     const values = [...inputArray];
+    //     values.push({ name: '', quantity: '0', price: '0' });
+    //     setInputArray(values);
+    // };
+
+
+    // const handleRemoveFields = index => {
+    //     const values = [...inputArray];
+    //     values.splice(index, 1);
+    //     setInputArray(values);
+    // };
+
+
+
     const handleSubmit = (dataItem) => alert(JSON.stringify(dataItem, null, 2));
 
     return (
@@ -63,18 +96,55 @@ export default function MultipleQuestion() {
                                 component={FormRadioGroup}
                                 data={confirmationData}
                             /> */}
-                                <Field name={"firstName"} className="mb-4" component={Input} label={"First name"} />
-                                <input type="radio" name="site_name"
-                                    value=""
-                                    // checked={this.state.site === result.SITE_NAME}
-                                    defaultValue="option2"
-                                    onChange={handleChange} />
+                                <Field name={questionText} className="mb-4" component={Input} label={"Edit question here"} onChange={handleInputName} />
+
+
+                                {
+                                    inputList.map((x, index) => (
+                                        <Fragment key={`${x}~${index}`}>
+
+                                            {/* <button
+                                                className="btn btn-link"
+                                                type="button"
+                                                onClick={() => handleRemoveFields(index)}
+                                            >
+                                                -
+                                            </button>
+                                            <button
+                                                className="btn btn-link"
+                                                type="button"
+                                                onClick={() => handleAddFields()}
+                                            >
+                                                +
+                                            </button> */}
+                                            <div className="box">
+                                                <input
+                                                    name="firstName"
+                                                    value={x.firstName}
+                                                    onChange={e => handleInputChange(e, index)}
+                                                />
+                                                <input
+                                                    className="ml10"
+                                                    name="lastName"
+                                                    value={x.lastName}
+                                                    onChange={e => handleInputChange(e, index)}
+                                                />
+                                                <div className="btn-box">
+                                                    {inputList.length !== 1 && <button
+                                                        className="mr10"
+                                                        onClick={() => handleRemoveClick(index)}>Remove</button>}
+                                                    {inputList.length - 1 === index && <button onClick={handleAddClick}>Add</button>}
+                                                </div>
+                                            </div>
+                                        </Fragment>
+                                    ))
+                                }
                                 <div>
                                     <RadioButton
                                         name="group1"
                                         value="first"
                                         checked={selectedValue === "first"}
-                                        label="Edit option 1"
+                                        label="Edit option"
                                         onChange={handleChange}
                                     />
                                     <br />
@@ -82,10 +152,10 @@ export default function MultipleQuestion() {
                                         name="group1"
                                         value="second"
                                         checked={selectedValue === "second"}
-                                        label="Edit option 2"
+                                        label="Edit option"
                                         onChange={handleChange}
                                     />
-                                    
+
                                 </div>
 
                                 <div className="k-form-buttons">
