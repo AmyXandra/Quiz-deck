@@ -1,7 +1,33 @@
-import * as React from 'react';
+import React, {useState} from 'react';
 // import * as ReactDOM from 'react-dom';
 import { Card, CardHeader, CardTitle, CardBody, CardActions, CardImage, CardSubtitle, Avatar } from '@progress/kendo-react-layout';
 const cardsData = [
+    {
+        thumbnailSrc: 'https://www.telerik.com/kendo-angular-ui-develop/components/layout/card/assets/bg_flag.jpg',
+        headerTitle: 'Mastering English',
+        headerSubtitle: 'Bulgaria, Europe',
+        commentsExpanded: false,
+        postLiked: false,
+        comments: [],
+        newCommentTextValue: '',
+        postLikes: 174,
+        scrollViewItems: {
+            url: 'https://www.telerik.com/kendo-angular-ui-develop/components/layout/card/assets/rose_festival.jpg'
+        }
+    },
+    {
+        thumbnailSrc: 'https://www.telerik.com/kendo-angular-ui-develop/components/layout/card/assets/bg_flag.jpg',
+        headerTitle: 'bg_traditions',
+        headerSubtitle: 'Bulgaria, Europe',
+        commentsExpanded: false,
+        postLiked: false,
+        comments: [],
+        newCommentTextValue: '',
+        postLikes: 174,
+        scrollViewItems: {
+            url: 'https://www.telerik.com/kendo-angular-ui-develop/components/layout/card/assets/rose_festival.jpg'
+        }
+    },
     {
         thumbnailSrc: 'https://www.telerik.com/kendo-angular-ui-develop/components/layout/card/assets/bg_flag.jpg',
         headerTitle: 'bg_traditions',
@@ -57,7 +83,7 @@ const cardsData = [
 ];
 
 export default function QuizCard() {
-    const [cards, setCards] = React.useState(cardsData);
+    const [cards, setCards] = useState(cardsData);
 
     const postLikesCount = card => {
         let index = cards.findIndex(item => item.thumbnailSrc === card.thumbnailSrc);
@@ -85,37 +111,41 @@ export default function QuizCard() {
         setCards(newCards);
     };
 
-    return <div style={{
+    return <div className="row">
+    {/* <div style={{
         display: 'flex',
         justifyContent: 'space-evenly',
         flexWrap: 'wrap'
-    }}>
+    }}> */}
         {cards.map((card, index) => {
-            return <div key={index}>
+            return <div className="col-md-4" key={index}>
                 <Card style={{
-                    width: 260,
+                    // width: 260,
                     boxShadow: '0 0 4px 0 rgba(0, 0, 0, .1)',
-                    marginTop: '15px'
+                    marginTop: '15px',
+                    borderRadius: '15px'
                     }}>
-                    <CardHeader className="k-hbox" style={{
-                        background: 'transparent'
-                    }}>
+                    <CardImage src={card.scrollViewItems.url} style={{height: '220px', maxWidth: '100%'}} />
+                    <CardHeader className="k-hbox" style={{background: 'transparent'}}>
                         <Avatar type='image' size='medium' shape='circle'><img style={{
-                            width: 45,
-                            height: 45
+                            width: 32,
+                            height: 32
                         }} src={card.thumbnailSrc} alt=""/></Avatar>
-                        <div>
+                        <div style={{width: '100%'}}>
                             <CardTitle style={{
                                 marginBottom: '4px'
                             }}>{card.headerTitle}</CardTitle>
-                            <CardSubtitle><p>{card.headerSubtitle}</p></CardSubtitle>
+                            <CardSubtitle style={{display: 'flex',justifyContent: 'space-between'}}>
+                                <p>{card.headerSubtitle}</p>
+                                
+                                <p>10 min</p>
+                                
+                            </CardSubtitle>
                         </div>
+                        
                     </CardHeader>
-                    <CardImage src={card.scrollViewItems.url} style={{
-                        height: '185px',
-                        maxWidth: '100%'
-                    }} />
-                    <CardActions style={{
+                    
+                    <CardActions className="card-actions" style={{
                         display: 'flex',
                         justifyContent: 'space-between'
                     }}>

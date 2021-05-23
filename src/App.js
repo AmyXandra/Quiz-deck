@@ -1,6 +1,5 @@
 import React from 'react';
 import '@progress/kendo-theme-bootstrap/dist/all.css';
-// import * as ReactDOM from "react-dom";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import Login from './components/auth/Login';
 import Register from './components/auth/Register';
@@ -13,16 +12,20 @@ import MyQuizes from './components/MyQuizes';
 
 function App() {
   return (
-    <React.Fragment>
+    <div className="App">
+    {/* <React.Fragment> */}
       <BrowserRouter>
           <Switch>
-            <Route path="/" component={CreateQuiz} />
+            <Route exact path="/" component={Landing} />
             <Route path="/login" component={Login} />
             <Route path="/register" component={Register} />
             <Route path="/dashboard" component={Dashboard} />
+            <Route path="/create" component={CreateQuiz} />
+            <Route path="/my-quizes" component={MyQuizes} />
           </Switch>
       </BrowserRouter>
-    </React.Fragment>
+    {/* </React.Fragment> */}
+    </div>
   );
 }
 

@@ -1,18 +1,12 @@
 import React from 'react';
-import { TileLayout } from "@progress/kendo-react-layout";
-import Header from './layout/Header';
+// import { TileLayout } from "@progress/kendo-react-layout";
+// import Header from './layout/Header';
 import { Hero, Publish } from './images/Images';
 import YoutubeEmbed from "./includes/YoutubeEmbed";
 import QuizCard from './includes/QuizCard';
 
 
 export default function Landing() {
-    const styles = {
-        padding: 10,
-        margin: "auto",
-        userSelect: "none",
-    };
-
 
     return (
         <div>
@@ -22,27 +16,28 @@ export default function Landing() {
                     <nav className="navbar navbar-inverse">
                         <div className="container-fluid">
                             <div className="navbar-header">
-                                <a className="navbar-brand" href="#">QuizDeck</a>
+                                <a className="navbar-brand" href="/">QuizDeck</a>
                             </div>
                             {/* <ul className="nav navbar-nav">
                                 <li className="active"><a href="#">Home</a></li>
                                 <li><a href="#">Page 2</a></li>
                             </ul> */}
                             <ul className="nav navbar-nav navbar-right">
-                                <li><a href="#"><span className="glyphicon glyphicon-user"></span> Sign Up</a></li>
-                                <li><a href="#"><span className="glyphicon glyphicon-log-in"></span> Login</a></li>
+                                <li><a href="/register"><span className="glyphicon glyphicon-user"></span> Sign Up</a></li>
+                                <li><a href="/login"><span className="glyphicon glyphicon-log-in"></span> Login</a></li>
                             </ul>
                         </div>
                     </nav>
                 </div>
+
                 <div className="container">
                     <div className="row mt-4">
                         <div className="col-md-5">
-                            <div>
+                            <div className="hero-text">
                                 <h1 className="mb-4">The best place to create an Online Quiz That’s Fun To Use</h1>
                                 <p>CodePen is a social development environment for front-end designers and developers. Build and deploy a website, show off your work, build test cases to learn and debug, and find inspiration.</p>
-                                <a className="k-button mb-4" href="/">Get Started</a>
-                                <p className="mb-4">Already a member? <a href="">Login</a></p>
+                                <a className="k-button mb-4" href="/register">Get Started</a>
+                                <p className="mb-4">Already a member? <a href="/login">Login</a></p>
                             </div>
                         </div>
                         <div className="col-md-6 offset-lg-1">

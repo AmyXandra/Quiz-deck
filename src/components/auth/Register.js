@@ -21,18 +21,20 @@ export default function Register() {
     };
     const handleSubmit = (dataItem) => alert(JSON.stringify(dataItem, null, 2));
     return (
-        <div>
-            <div className="row">
-                <div className="col-md-4"></div>
-                <div className="col-md-8">
+        <div className="auth-wrapper">
+            <div className="wrap-login100">
+                <div className="login100-form">
                     <Form
                         onSubmit={handleSubmit}
                         render={(formRenderProps) => (
                             <FormElement style={{ maxWidth: 650 }}>
                                 <fieldset className={"k-form-fieldset"}>
-                                    <legend className={"k-form-legend"}>
+                                    {/* <legend className={"k-form-legend"}>
                                         Please fill in the fields:
-                                    </legend>
+                                    </legend> */}
+                                    <h3>Get started with Quizdeck</h3>
+                                    <p className="mb-3">Already have an account? Login</p>
+
                                     <div className="mb-3">
                                         <Field
                                             name={"firstName"}
@@ -67,6 +69,12 @@ export default function Register() {
                             </FormElement>
                         )}
                     />
+                </div>
+                <div className="login100-more">
+                    <div>
+                        <h3>Engage your friends</h3>
+                        <p>Make study time with friends feel connected even when you’re far away</p>
+                    </div>
                 </div>
             </div>
         </div>

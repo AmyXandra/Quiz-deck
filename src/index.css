@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap');
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -5,6 +7,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  font-family: 'Lato', sans-serif;
 }
 
 code {
@@ -13,11 +16,23 @@ code {
 }
 
 .hero{
-  height: 85vh;
+  height: 90vh;
 }
 .hero .row{
   padding-top: 100px;
 }
+.hero-text h1{
+  font-weight: bold;
+  font-size: 48px;
+  line-height: 65px;
+  color: #343A40;
+}
+.hero-text p{
+  font-size: 18px;
+  line-height: 29px;
+  color: #6F6F6F;
+}
+
 .new-section{
   padding: 80px 0;
 }
@@ -71,4 +86,93 @@ code {
   height: 100%;
   width: 100%;
   position: absolute;
+}
+
+
+
+.auth-wrapper {
+  width: 100%;
+  min-height: 100vh;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  background: #f2f2f2;
+}
+.wrap-login100 {
+  width: 100%;
+  background: #fff;
+  overflow: hidden;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
+  flex-direction: row-reverse;
+}
+.login100-more {
+  width: calc(100% - 560px);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  z-index: 1;
+  background-color: #F1F1F1;
+}
+.login100-form {
+  width: 560px;
+  min-height: 100vh;
+  display: block;
+  background-color: #f7f7f7;
+  padding: 173px 55px 55px;
+}
+
+.card-actions{
+  display: none
+}
+
+.card-actions:hover{
+  display: block
+}
+
+.main-content-padding {
+  padding: 2.5rem 2.5rem 0;
+  background: white;
+}
+.create-quiz-menu{
+  margin-bottom: 15px
+}
+.create-quiz-menu h4 {
+  background: gray;
+  padding: 10px 14px;
+}
+.create-quiz-menu ul{
+  list-style: none;
+}
+.create-quiz-menu ul li{
+  padding: 10px;
+
+}
+
+
+.single-quiz-block {
+  padding: 20px 35px;
+  border: 1px solid #6F6F6F;
+  margin-bottom: 15px;
+  border-radius: 8px;
+}
+.single-quiz-block h5{
+  font-size: 16px;
+  color: #6F6F6F;
+  margin-bottom: 15px;
+}
+.single-quiz-block h4{
+  font-size: 18px;
+  line-height: 28px;
 }
