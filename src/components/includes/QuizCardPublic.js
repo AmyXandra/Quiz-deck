@@ -50,7 +50,7 @@ export default function QuizCard() {
     return <div className="row">
 
         {cards && cards.map((card, index) => {
-            return<div className="col-md-3 col-sm-6 col-xs-12" key={index} onClick={() => history.push(`/preview/${card._id}`)}>
+            return<div className="col-md-4" key={index} onClick={() => history.push(`/preview/${card._id}`)}>
                 <Card style={{
                     // width: 260,
                     boxShadow: '0 0 4px 0 rgba(0, 0, 0, .1)',
@@ -59,7 +59,10 @@ export default function QuizCard() {
                 }}>
                     <CardImage src={Default} style={{height: '220px', maxWidth: '100%'}} />
                     <CardHeader className="k-hbox" style={{ background: 'transparent' }}>
-                        
+                        <Avatar type='image' size='medium' shape='circle'><img style={{
+                            width: 32,
+                            height: 32
+                        }} src={Default} alt="" /></Avatar>
                         <div style={{ width: '100%' }}>
                             <CardTitle style={{
                                 marginBottom: '4px'

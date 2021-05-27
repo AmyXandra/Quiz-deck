@@ -1,7 +1,7 @@
 import React from 'react';
 // import { TileLayout } from "@progress/kendo-react-layout";
 // import Header from './layout/Header';
-import { Hero, Publish } from './images/Images';
+import { Hero, Publish, Share, Book, Dotted } from './images/Images';
 import YoutubeEmbed from "./includes/YoutubeEmbed";
 import QuizCard from './includes/QuizCard';
 
@@ -12,35 +12,34 @@ export default function Landing() {
         <div>
             <section className="hero">
                 {/* <Header /> */}
+                
                 <div className="container">
                     <nav className="navbar navbar-inverse">
                         <div className="container-fluid">
                             <div className="navbar-header">
                                 <a className="navbar-brand" href="/">QuizDeck</a>
                             </div>
-                            {/* <ul className="nav navbar-nav">
-                                <li className="active"><a href="#">Home</a></li>
-                                <li><a href="#">Page 2</a></li>
-                            </ul> */}
+                            
                             <ul className="nav navbar-nav navbar-right">
-                                <li><a href="/register"><span className="glyphicon glyphicon-user"></span> Sign Up</a></li>
-                                <li><a href="/login"><span className="glyphicon glyphicon-log-in"></span> Login</a></li>
+                                <li><a href="/register" className="k-button k-button-outline k-primary mr-2">Sign Up</a></li>
+                                <li><a href="/login" className="k-button k-button-primary"> Login</a></li>
                             </ul>
                         </div>
                     </nav>
                 </div>
+                
 
                 <div className="container">
                     <div className="row mt-4">
-                        <div className="col-md-5">
+                        <div className="col-md-6">
                             <div className="hero-text">
                                 <h1 className="mb-4">The best place to create an Online Quiz That’s Fun To Use</h1>
                                 <p>CodePen is a social development environment for front-end designers and developers. Build and deploy a website, show off your work, build test cases to learn and debug, and find inspiration.</p>
-                                <a className="k-button mb-4" href="/register">Get Started</a>
+                                <a className="k-button k-button-primary mb-4" href="/register">Get Started</a>
                                 <p className="mb-4">Already a member? <a href="/login">Login</a></p>
                             </div>
                         </div>
-                        <div className="col-md-6 offset-lg-1">
+                        <div className="col-md-6">
                             <div>
                                 <img src={Hero} className="img-responsive w-100" alt="hero" />
                             </div>
@@ -52,14 +51,16 @@ export default function Landing() {
             <section className="new-section how-it-works">
                 <div className="container">
                     <div className="text-center heading">
-                        <h3 className="">Features Of Quiz Marker</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Egestas facilisis cursus semper quis mattis. </p>
+                        <div className="heading-1">
+                            <h3>Features Of QuizDeck</h3>
+                            <p>All you need to stay connected while you study. </p>
+                        </div>
                     </div>
                     <div className="row pt-4">
                         <div className="col-md-4">
                             <div className="step">
                                 <div className="icon">
-                                    <img src={Publish} alt="" />
+                                    <img src={Book} alt="" />
                                 </div>
                                 <h4>1. Create Quiz</h4>
                                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pharetra ornare at velit sodales. Cras donec tortor varius ipsum nibh sed.</p>
@@ -78,7 +79,7 @@ export default function Landing() {
                         <div className="col-md-4">
                             <div className="step">
                                 <div className="icon">
-                                    <img src={Publish} alt="" />
+                                    <img src={Share} alt="" />
                                 </div>
                                 <h4>2. Share Questions with Friends</h4>
                                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pharetra ornare at velit sodales. Cras donec tortor varius ipsum nibh sed.</p>
@@ -107,15 +108,18 @@ export default function Landing() {
                 </div>
             </section>
 
-            <section className="new-section">
+            <section className="new-section about-section">
                 <div className="container">
-                    <div className="row">
+                    <div className="row" style={{alignItems:'center'}}>
                         <div className="col-md-6">
-                        <YoutubeEmbed embedId="rokGy0huYEA" />
+                            <div className="about-video">
+                                <YoutubeEmbed embedId="rokGy0huYEA" />
+                                <div className="dotted"></div>
+                            </div>
                         </div>
                         <div className="col-md-5 offset-md-1">
-                            <div>
-                                <h3 className=" heading">Why Would You Make  A Quiz?</h3>
+                            <div style={{maxWidth: '400px'}}>
+                                <h3 className="heading-2">Why Would You Make  A Quiz?</h3>
                                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. At massa fringilla tellus nec. Ut mollis curabitur egestas diam scelerisque quis. Et sed sed vel ut sagittis cursus felis quis. Convallis est volutpat non sed vitae est mauris eget.</p>
                             </div>
                         </div>
@@ -125,9 +129,9 @@ export default function Landing() {
 
             <section className="new-section">
                 <div className="container">
-                    <div className="text-center heading">
+                    <div className="text-center heading-1">
                         <h3>Published Quiz</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Egestas facilisis cursus semper quis mattis. </p>
+                        <p>All you need to stay connected while you study. </p>
                     </div>
                     <QuizCard/>
                     {/* <div className="row">
@@ -135,6 +139,12 @@ export default function Landing() {
                     </div> */}
                 </div>
             </section>
+            <footer>
+                <hr/>
+                <div className="container">
+                    <p>QuizDeck 2021</p>
+                </div>
+            </footer>
         </div >
     )
 }

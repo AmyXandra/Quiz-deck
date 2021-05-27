@@ -7,6 +7,8 @@ import Landing from './components/Landing';
 import Dashboard from './components/Dashboard';
 import CreateQuiz from './components/CreateQuiz';
 import MyQuizes from './components/MyQuizes';
+import ViewQuiz from './components/ViewQuiz';
+import TakeQuiz from './components/TakeQuiz';
 
 
 
@@ -22,6 +24,8 @@ function App() {
             <Route path="/dashboard" component={Dashboard} />
             <Route path="/create" component={CreateQuiz} />
             <Route path="/my-quizes" component={MyQuizes} />
+            <Route path="/test/:id" component={TakeQuiz} />
+            <Route path="/preview/:id" component={ViewQuiz} />
           </Switch>
       </BrowserRouter>
     {/* </React.Fragment> */}

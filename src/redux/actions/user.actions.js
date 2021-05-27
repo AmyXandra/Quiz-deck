@@ -10,7 +10,6 @@ export const userActions = {
 
 function login(dataItem) {
     return dispatch => {
-        console.log("got here")
         dispatch(request({ dataItem }));
 
         userService.login(dataItem)
@@ -36,13 +35,13 @@ function logout() {
     return { type: "LOGOUT" };
 }
 
-function register(data) {
+function register(dataItem) {
     return dispatch => {
-        dispatch(request(data));
+        dispatch(request(dataItem));
 
-        userService.registerCompany(data)
+        userService.register(dataItem)
             .then(
-                user => { 
+                user_reg => { 
                     dispatch(success());
                     history('/login');
                 },
@@ -52,7 +51,7 @@ function register(data) {
             );
     };
 
-    function request(user) { return { type: "REGISTER_REQUEST", user } }
-    function success(user) { return { type: "REGISTER_SUCCESS", user } }
+    function request(user_reg) { return { type: "REGISTER_REQUEST", user_reg } }
+    function success(user_reg) { return { type: "REGISTER_SUCCESS", user_reg } }
     function failure(error) { return { type: "REGISTER_FAILURE", error } }
 }

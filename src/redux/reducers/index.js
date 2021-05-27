@@ -4,14 +4,14 @@ import {combineReducers} from 'redux';
 // import { registration } from './registration.reducer';
 // import { alert } from './alert.reducer';
 import { users } from './user.reducer';
-// import { admin } from './admin.reducer';
+import { quiz } from './quiz.reducer';
 
 const rootReducer = combineReducers({
 //   authentication,
 //   registration,
 //   alert,
   users,
-//   admin
+  quiz
 });
 
 export default rootReducer;

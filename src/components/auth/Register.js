@@ -1,8 +1,12 @@
 import React from 'react';
-// import * as ReactDOM from 'react-dom';
 import { Form, Field, FormElement } from '@progress/kendo-react-form';
 import { Error } from '@progress/kendo-react-labels';
 import { Input } from '@progress/kendo-react-inputs';
+import {AuthImage} from '../images/Images';
+import {userActions} from '../../redux/actions';
+import { useLocation } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux'; 
+
 
 export default function Register() {
     const emailRegex = new RegExp(/\S+@\S+\.\S+/);
@@ -19,7 +23,12 @@ export default function Register() {
             </div>
         );
     };
-    const handleSubmit = (dataItem) => alert(JSON.stringify(dataItem, null, 2));
+
+    const dispatch = useDispatch();
+    const handleSubmit = (dataItem) => {
+        dispatch(userActions.register(dataItem));
+        console.log("dataItem",dataItem)
+    }
     return (
         <div className="auth-wrapper">
             <div className="wrap-login100">
@@ -29,22 +38,17 @@ export default function Register() {
                         render={(formRenderProps) => (
                             <FormElement style={{ maxWidth: 650 }}>
                                 <fieldset className={"k-form-fieldset"}>
-                                    {/* <legend className={"k-form-legend"}>
-                                        Please fill in the fields:
-                                    </legend> */}
-                                    <h3>Get started with Quizdeck</h3>
-                                    <p className="mb-3">Already have an account? Login</p>
-
+                                                                        
+                                    <h4>Get started with Quizdeck</h4>
+                                    <p className="mb-3">Already have an account? <a href="/login">Login</a></p>
+                                    
                                     <div className="mb-3">
                                         <Field
-                                            name={"firstName"}
+                                            name={"username"}
                                             component={Input}
-                                            label={"First name"}
+                                            type={"text"}
+                                            label={"Username"}
                                         />
-                                    </div>
-
-                                    <div className="mb-3">
-                                        <Field name={"lastName"} component={Input} label={"Last name"} />
                                     </div>
 
                                     <div className="mb-3">
@@ -56,11 +60,22 @@ export default function Register() {
                                             validator={emailValidator}
                                         />
                                     </div>
+
+                                    <div className="mb-3">
+                                        <Field
+                                            name={"password"}
+                                            component={Input}
+                                            type={"password"}
+                                            label={"Password"}
+                                        />
+                                    </div>
+
+                                    
                                 </fieldset>
                                 <div className="k-form-buttons">
                                     <button
                                         type={"submit"}
-                                        className="k-button"
+                                        className="k-button k-button-primary"
                                         disabled={!formRenderProps.allowSubmit}
                                     >
                                         Submit
@@ -70,8 +85,8 @@ export default function Register() {
                         )}
                     />
                 </div>
-                <div className="login100-more">
-                    <div>
+                <div className="login100-more" style={{backgroundImage: `url(${AuthImage})`}}>
+                    <div className="auth-desc">
                         <h3>Engage your friends</h3>
                         <p>Make study time with friends feel connected even when you’re far away</p>
                     </div>

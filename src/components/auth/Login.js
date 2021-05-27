@@ -1,11 +1,11 @@
 import React from 'react';
-// import * as ReactDOM from 'react-dom';
 import { Form, Field, FormElement } from '@progress/kendo-react-form';
 import { Error } from '@progress/kendo-react-labels';
 import { Input } from '@progress/kendo-react-inputs';
+import {AuthImage} from '../images/Images';
 import {userActions} from '../../redux/actions';
 import { useLocation } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux'; 
 
 
 export default function Login() {
@@ -28,11 +28,10 @@ export default function Login() {
     };
     
     const handleSubmit = (dataItem) => {
-        alert(JSON.stringify(dataItem, null, 2));
         const { from } = location.state || { from: { pathname: "/" } };
         dispatch(userActions.login(dataItem, from));
-        console.log("dataItem",dataItem)
     }
+
     return (
         <div className="auth-wrapper">
             <div className="wrap-login100">
@@ -42,11 +41,9 @@ export default function Login() {
                         render={(formRenderProps) => (
                             <FormElement style={{ maxWidth: 650 }}>
                                 <fieldset className={"k-form-fieldset"}>
-                                    {/* <legend className={"k-form-legend"}>
-                                        Please fill in the fields:
-                                    </legend> */}
+                                    
                                     <h3>Log in</h3>
-                                    <p className="mb-3">Don't have a involve.me account yet? Create an account</p>
+                                    <p className="mb-3">Don't have a QuizDeck account yet? <a href="/register">Create an account</a></p>
 
                                     <div className="mb-3">
                                         <Field
@@ -62,6 +59,7 @@ export default function Login() {
                                         <Field
                                             name={"password"}
                                             component={Input}
+                                            type={"password"}
                                             label={"Password"}
                                         />
                                     </div>
@@ -70,7 +68,7 @@ export default function Login() {
                                 <div className="k-form-buttons">
                                     <button
                                         type={"submit"}
-                                        className="k-button"
+                                        className="k-button k-button-primary"
                                         disabled={!formRenderProps.allowSubmit}
                                     >
                                         Submit
@@ -80,8 +78,8 @@ export default function Login() {
                         )}
                     />
                 </div>
-                <div className="login100-more">
-                    <div>
+                <div className="login100-more" style={{backgroundImage: `url(${AuthImage})`}}>
+                    <div className="auth-desc">
                         <h3>Engage your friends</h3>
                         <p>Make study time with friends feel connected even when you’re far away</p>
                     </div>

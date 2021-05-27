@@ -1,43 +1,57 @@
 import React from 'react';
 import {
-    AppBar,
-    AppBarSection,
-    AppBarSpacer,
-  } from "@progress/kendo-react-layout";
-  import { Badge, BadgeContainer } from "@progress/kendo-react-indicators";
+  AppBar,
+  AppBarSection,
+  AppBarSpacer,
+} from "@progress/kendo-react-layout";
+import { Badge, BadgeContainer } from "@progress/kendo-react-indicators";
+import { Avatar } from "@progress/kendo-react-layout";
 
 
-export default function MyQuizes() {
-    return(
-        <React.Fragment>
+export default function Header(props) {
+  let user = JSON.parse(localStorage.getItem('user'));
+  console.log("user", user.data.username)
+  return (
+    <React.Fragment>
       <AppBar>
         <AppBarSection>
-          <h1 className="title">QuizDeck</h1>
+          {props.children}
+          <h1 className="app-header-title">QuizDeck</h1>
         </AppBarSection>
 
         <AppBarSpacer />
 
         <AppBarSection>
-          <button className="k-button k-button-clear">
-            <BadgeContainer>
-              <span className="k-icon k-i-bell" />
-              <Badge
-                shape="dot"
-                themeColor="info"
-                size="small"
-                position="inside"
-              />
-            </BadgeContainer>
-          </button>
-          <span className="k-appbar-separator" />
-          <button className="k-button k-button-clear">
-            <span className="k-icon k-i-heart" />
-          </button>
+          
+          <div className="k-hbox">
+            <Avatar
+              shape="circle"
+              type="text"
+              style={{
+                marginRight: 5,
+              }}
+            >
+              {user.data.username}
+            </Avatar>
+            {/* <div>
+              <h2
+                style={{
+                  fontSize: "1.3em",
+                  fontWeight: "normal",
+                  margin: 0,
+                }}
+              >
+                {user.data.username}
+              </h2>
+            </div> */}
+
+          </div>
+
         </AppBarSection>
       </AppBar>
       <style>{`
                 body {
-                    background: #dfdfdf;
+                    background: #fffff;
                 }
                 .title {
                     font-size: 18px;
@@ -52,10 +66,13 @@ export default function MyQuizes() {
                 .k-appbar .k-appbar-separator {
                     margin: 0 8px;
                 }
-                .k-button {
-                    padding: 0;
+                .k-drawer-item{
+                  padding: 0.85rem 1rem;
+                }
+                .k-appbar {
+                  padding: 0.8rem 1rem;
                 }
             `}</style>
     </React.Fragment>
-    )
+  )
 }

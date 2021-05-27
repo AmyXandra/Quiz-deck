@@ -5,7 +5,7 @@ import base_url from './base_url';
 export const userService = {
     login,
     logout,
-    // register,
+    register,
 };
 
 function login(dataItem) {
@@ -17,11 +17,23 @@ function login(dataItem) {
     return fetch(`${base_url}login`, requestOptions)
         .then(handleResponse)
         .then(user => {
+            console.log(user.token, 'i am the token')
             // store user details and jwt token in local storage to keep user logged in between page refreshes
             localStorage.setItem('user', JSON.stringify(user));
-            localStorage.setItem('accessToken', JSON.stringify(user.data.token));
+            localStorage.setItem('accessToken', user.token);
             return user;
         });
+}
+
+
+function register(dataItem) {
+    const requestOptions = {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(dataItem)
+    };
+
+    return fetch(`${base_url}register`, requestOptions).then(handleResponse);
 }
 
 

@@ -5,7 +5,7 @@ import Header from './Header';
 export default function App(props) {
   return(
     <div>
-      <Header/>
+      {/* <Header/> */}
       {props.children}
     </div>
   )

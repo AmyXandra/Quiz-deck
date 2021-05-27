@@ -1,11 +1,16 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import App from './layout/App';
 import SideNav from './layout/SideNav';
 import QuizCard from './includes/QuizCard';
 import { Button } from "@progress/kendo-react-buttons";
+import {useDispatch, useSelector} from 'react-redux';
+import {quizActions} from '../redux/actions'
 
 
-export default function Dashboard() {
+export default function MyQuizes() {
+    const dispatch = useDispatch();
+    
+   
     return(
         <App>
             <SideNav>
