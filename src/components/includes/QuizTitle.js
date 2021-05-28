@@ -39,7 +39,7 @@ export default function QuizTitle() {
                                 <Field name={"name"} className="mb-3" type={"text"} 
                                 placeholder={"E.g: Physics past questions"} component={Input} label={"Deck name"} />
                                 <Field name={"description"} className="mb-3" placeholder={"E.g: Questions for Jambites"} 
-                                type={"text"} component={Input} label={"Edit question here"} />
+                                type={"text"} component={Input} label={"Enter deck description"} />
                             </fieldset>
 
                             <DialogActionsBar>
