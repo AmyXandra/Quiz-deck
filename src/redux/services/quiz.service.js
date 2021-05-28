@@ -16,7 +16,7 @@ function createQuizDeck(dataItem) {
     const requestOptions = {
         method: 'POST',
         headers: { ...authHeader(), 'Content-Type': 'application/json' },
-        body: JSON.stringify(dataItem, {"public": false})
+        body: JSON.stringify(dataItem, {"public": true})
     };
 
     return fetch(`${base_url}deck/create`, requestOptions).then(handleResponse);

@@ -12,7 +12,7 @@ export default function Header(props) {
   let user = JSON.parse(localStorage.getItem('user'));
   console.log("user", user.data.username)
   function initials(name){
-    name.match(/(\b\S)?/g).join("").match(/(^\S|\S$)?/g).join("").toUpperCase()
+    return name.charAt(0)
   }
   return (
     <React.Fragment>

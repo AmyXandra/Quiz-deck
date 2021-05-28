@@ -3,7 +3,7 @@ import React from 'react';
 // import Header from './layout/Header';
 import { Hero, Publish, Share, Book } from './images/Images';
 import YoutubeEmbed from "./includes/YoutubeEmbed";
-// import QuizCard from './includes/QuizCard';
+import QuizCard from './includes/QuizCard';
 
 
 export default function Landing() {
@@ -107,13 +107,13 @@ export default function Landing() {
                     </div>
                 </div>
             </section>
-
+            
             <section className="new-section about-section">
                 <div className="container">
                     <div className="row" style={{alignItems:'center'}}>
                         <div className="col-md-6">
                             <div className="about-video">
-                                <YoutubeEmbed embedId="rokGy0huYEA" />
+                                <YoutubeEmbed embedId="i0cJ0gPqf6g" />
                                 {/* <div className="dotted"></div> */}
                             </div>
                         </div>
@@ -127,7 +127,7 @@ export default function Landing() {
                 </div>
             </section>
 
-            {/* <section className="new-section">
+            <section className="new-section">
                 <div className="container">
                     <div className="text-center heading-1">
                         <h3>Published Quiz</h3>
@@ -136,7 +136,7 @@ export default function Landing() {
                     <QuizCard/>
                     
                 </div>
-            </section> */}
+            </section>
             <footer>
                 <hr/>
                 <div className="container text-center">

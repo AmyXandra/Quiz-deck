@@ -87,9 +87,9 @@ export default function CreateQuiz() {
 
                             <div className="quiz-previewer">
                                 
-                                <div className="k-hbox k-justify-content-between mb-4">
+                                <div className="k-hbox mb-4" style={{justifyContent: 'flex-end'}}>
                                     <a href="/my-quizes" className="k-button k-button-outline k-primary">Back to My Quizes</a>
-                                    <Button icon="folder" primary={true}> Publish </Button>
+                                    {/* <Button icon="folder" primary={true}> Publish </Button> */}
                                 </div>
 
                                 <div className="quiz-preview-wrapper">

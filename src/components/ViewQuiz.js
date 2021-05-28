@@ -54,6 +54,7 @@ export default function ViewQuiz() {
                             <div className="quiz-preview-wrapper">
                             {single_deck && single_deck.length > 0 &&
                                 <div className="text-center mb-4">
+                                    <h5>Preview:</h5>
                                     <h4>{single_deck[0].name}</h4>
                                     <p>{single_deck[0].description}</p>
                                 </div>
@@ -65,7 +66,7 @@ export default function ViewQuiz() {
                                         <div className="single-quiz-block">
                                             <h5>Question {index + 1}</h5>
                                             <h4>{question.title}</h4>
-                                            <RadioGroup data={createTableData(question.questionoptions)} />
+                                            <RadioGroup disabled data={createTableData(question.questionoptions)} />
                                         </div>
                                     )) : ''
                                 }
