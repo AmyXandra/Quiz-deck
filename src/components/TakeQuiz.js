@@ -60,15 +60,16 @@ export default function TakeQuiz() {
 	return (
 		<App>
 			<Header />
-			<div class="main-content-padding">
-				{questions && <div className="text-center mb-4">
+			<div class="main-content-padding mt-4">
+				{questions && 
+				<div className="text-center quiz-title mb-4">
 					<h4>{single_deck[0].name}</h4>
 					<p>{single_deck[0].description}</p>
 				</div>}
 				<div className="quiz-wrapper">
 				{showScore ? (
 					<div className='score-section'>
-						{questions && <div>You scored {score} out of {questions.length}</div>}
+						{questions && <h3>You scored {score} out of {questions.length}</h3>}
 					</div>
 				) : (
 						<>

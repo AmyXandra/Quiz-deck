@@ -1,14 +1,14 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import App from './layout/App';
 import SideNav from './layout/SideNav';
 import QuizCard from './includes/QuizCard';
 import { Button } from "@progress/kendo-react-buttons";
-import {useDispatch, useSelector} from 'react-redux';
-import {quizActions} from '../redux/actions'
+import {useDispatch} from 'react-redux';
+// import {quizActions} from '../redux/actions'
 
 
 export default function MyQuizes() {
-    const dispatch = useDispatch();
+    // const dispatch = useDispatch();
     
    
     return(

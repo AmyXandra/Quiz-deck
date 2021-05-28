@@ -57,13 +57,13 @@ export default function MultipleQuestion() {
     const handleSubmit = (dataItem) => {
         // console.log("dataitem",{ ...dataItem, questionoptions: inputList, "answer": selectedOption, "type": 1 })
         let data_stuffs = { ...dataItem, questionoptions: inputList, "answer": selectedOption, "type": 1 }
-        dispatch(quizActions.createQuizQuestion(data_stuffs, deckId))
+        dispatch(quizActions.createQuizQuestion(data_stuffs, deckId, setVisible))
     };
 
     return (
         <div>
             <button className="k-button" onClick={toggleDialog}>
-            <div>
+            <div className="option-img">
                 <img src={MultipleOption} alt="multiple-option" />
                 Multiple Choice
             </div>
@@ -73,7 +73,7 @@ export default function MultipleQuestion() {
                     <Form
                         onSubmit={handleSubmit}
                         render={(formRenderProps) => (
-                            <FormElement style={{ width: 600 }}>
+                            <FormElement style={{ maxWidth: 600,  }}>
 
                                 <Field
                                     name={"title"}
@@ -114,7 +114,7 @@ export default function MultipleQuestion() {
                                 </div>
 
                                 
-                                <button className="k-button k-button-primary mt-3 mb-4" onClick={handleAddClick}>Add Option</button>
+                                <button className="k-button k-button-outline k-primary mt-3 mb-4" onClick={handleAddClick}>Add Option</button>
                                 
 
 

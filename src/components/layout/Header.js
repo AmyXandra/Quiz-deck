@@ -4,19 +4,22 @@ import {
   AppBarSection,
   AppBarSpacer,
 } from "@progress/kendo-react-layout";
-import { Badge, BadgeContainer } from "@progress/kendo-react-indicators";
+// import { Badge, BadgeContainer } from "@progress/kendo-react-indicators";
 import { Avatar } from "@progress/kendo-react-layout";
 
 
 export default function Header(props) {
   let user = JSON.parse(localStorage.getItem('user'));
   console.log("user", user.data.username)
+  function initials(name){
+    name.match(/(\b\S)?/g).join("").match(/(^\S|\S$)?/g).join("").toUpperCase()
+  }
   return (
     <React.Fragment>
       <AppBar>
         <AppBarSection>
           {props.children}
-          <h1 className="app-header-title">QuizDeck</h1>
+          <a href="/my-quizes"><h1 className="app-header-title">QuizDeck</h1></a>
         </AppBarSection>
 
         <AppBarSpacer />
@@ -31,7 +34,7 @@ export default function Header(props) {
                 marginRight: 5,
               }}
             >
-              {user.data.username}
+              {initials(user.data.username)}
             </Avatar>
             {/* <div>
               <h2

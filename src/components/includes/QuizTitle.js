@@ -3,15 +3,14 @@ import { Dialog, DialogActionsBar } from '@progress/kendo-react-dialogs';
 import { Form, Field, FormElement, } from "@progress/kendo-react-form";
 import { Input } from '@progress/kendo-react-inputs';
 import { Button } from "@progress/kendo-react-buttons";
-import { RadioButton } from "@progress/kendo-react-inputs";
-import { useDispatch } from 'react-redux';
 import { quizActions } from '../../redux/actions';
 import { history } from '../../redux/helpers';
+import {useDispatch} from 'react-redux';
 
 
 export default function QuizTitle() {
 
-    const [visible, setVisible] = useState(true);
+    const [visible] = useState(true);
 
     const toggleDialog = () => {
         // setVisible(!visible);
@@ -34,7 +33,7 @@ export default function QuizTitle() {
                 <Form
                     onSubmit={handleSubmit}
                     render={(formRenderProps) => (
-                        <FormElement style={{ width: 600 }}>
+                        <FormElement style={{ maxWidth: 500, width: '350px' }}>
                             <fieldset className={"k-form-fieldset"}>
 
                                 <Field name={"name"} className="mb-3" type={"text"} 

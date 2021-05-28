@@ -50,7 +50,7 @@ export default function QuizCard() {
     return <div className="row">
 
         {cards && cards.map((card, index) => {
-            return<div className="col-md-3 col-sm-6 col-xs-12" key={index} onClick={() => history.push(`/preview/${card._id}`)}>
+            return<div className="col-lg-3 col-md-6 col-sm-6 col-xs-12" key={index} onClick={() => history.push(`/preview/${card._id}`)}>
                 <Card style={{
                     // width: 260,
                     boxShadow: '0 0 4px 0 rgba(0, 0, 0, .1)',

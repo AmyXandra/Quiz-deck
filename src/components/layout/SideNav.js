@@ -22,7 +22,7 @@ const items = [{
 }];
 
 export default function Sidenav(props) {
-  const [expanded, setExpanded] = React.useState(true);
+  const [expanded, setExpanded] = React.useState(false);
   const [selectedId, setSelectedId] = React.useState(items.findIndex(x => x.selected === true));
 
 
@@ -54,19 +54,36 @@ export default function Sidenav(props) {
 
     <div>
       <Header>
-        <Button icon="menu" look="flat" onClick={handleClick} />
+        <Button className="mobile-menu" icon="menu" look="flat" onClick={handleClick} />
       </Header>
-      <Drawer expanded={expanded} position={'start'} mode={expandMode} items={items.map((item, index) => ({
-        ...item,
-        selected: index === selectedId
-      }))}onOverlayClick={handleClick} onSelect={handleSelect}>
+
+      <div className="menu-items-mobile">
+        <Drawer expanded={expanded} position={'start'} mode={'overlay'} items={items.map((item, index) => ({
+          ...item,
+          selected: index === selectedId
+        }))}onOverlayClick={handleClick} onSelect={handleSelect}>
+        
+          <DrawerContent>
+
+            {props.children}
+
+          </DrawerContent>
+        </Drawer>
+      </div>
       
-        <DrawerContent>
+      <div className="menu-items-desktop">
+        <Drawer expanded={true} position={'start'} mode={'push'} items={items.map((item, index) => ({
+          ...item,
+          selected: index === selectedId
+        }))}onOverlayClick={handleClick} onSelect={handleSelect}>
+        
+          <DrawerContent>
 
-          {props.children}
+            {props.children}
 
-        </DrawerContent>
-      </Drawer>
+          </DrawerContent>
+        </Drawer>
+      </div>
     </div>)
 };
 

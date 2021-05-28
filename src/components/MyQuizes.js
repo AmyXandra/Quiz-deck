@@ -19,7 +19,7 @@ export default function MyQuizes() {
     return(
         <App>
             <SideNav>
-                <div className="main-content-padding">
+                <div className="main-content-padding mt-4">
                     <div style={{display: 'flex',justifyContent: 'space-between', paddingBottom:'30px'}}>
                         <h3>My Quizes</h3>
                         <a href="/create">

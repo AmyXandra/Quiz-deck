@@ -1,9 +1,9 @@
 import React from 'react';
 // import { TileLayout } from "@progress/kendo-react-layout";
 // import Header from './layout/Header';
-import { Hero, Publish, Share, Book, Dotted } from './images/Images';
+import { Hero, Publish, Share, Book } from './images/Images';
 import YoutubeEmbed from "./includes/YoutubeEmbed";
-import QuizCard from './includes/QuizCard';
+// import QuizCard from './includes/QuizCard';
 
 
 export default function Landing() {
@@ -34,7 +34,7 @@ export default function Landing() {
                         <div className="col-md-6">
                             <div className="hero-text">
                                 <h1 className="mb-4">The best place to create an Online Quiz That’s Fun To Use</h1>
-                                <p>CodePen is a social development environment for front-end designers and developers. Build and deploy a website, show off your work, build test cases to learn and debug, and find inspiration.</p>
+                                <p>QuizDeck is a great environment for students, teachers and anyone who takes time to study. Create your own tests in your own language and track your knowledge alone or with friends.</p>
                                 <a className="k-button k-button-primary mb-4" href="/register">Get Started</a>
                                 <p className="mb-4">Already a member? <a href="/login">Login</a></p>
                             </div>
@@ -114,34 +114,32 @@ export default function Landing() {
                         <div className="col-md-6">
                             <div className="about-video">
                                 <YoutubeEmbed embedId="rokGy0huYEA" />
-                                <div className="dotted"></div>
+                                {/* <div className="dotted"></div> */}
                             </div>
                         </div>
                         <div className="col-md-5 offset-md-1">
                             <div style={{maxWidth: '400px'}}>
-                                <h3 className="heading-2">Why Would You Make  A Quiz?</h3>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. At massa fringilla tellus nec. Ut mollis curabitur egestas diam scelerisque quis. Et sed sed vel ut sagittis cursus felis quis. Convallis est volutpat non sed vitae est mauris eget.</p>
+                                <h3 className="heading-2">Why Would You Make A Quiz?</h3>
+                                <p>Study shows that taking quizes is great to track our learning and retention levels. Make study time fun by creating quizes with your friends and study partners regardless of whether you're together or apart.</p>
                             </div>
                         </div>
                     </div>
                 </div>
             </section>
 
-            <section className="new-section">
+            {/* <section className="new-section">
                 <div className="container">
                     <div className="text-center heading-1">
                         <h3>Published Quiz</h3>
                         <p>All you need to stay connected while you study. </p>
                     </div>
                     <QuizCard/>
-                    {/* <div className="row">
-
-                    </div> */}
+                    
                 </div>
-            </section>
+            </section> */}
             <footer>
                 <hr/>
-                <div className="container">
+                <div className="container text-center">
                     <p>QuizDeck 2021</p>
                 </div>
             </footer>

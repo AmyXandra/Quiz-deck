@@ -1,47 +1,41 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { useParams } from "react-router-dom";
-import { useHistory } from "react-router-dom";
 import App from './layout/App';
-import SideNav from './layout/SideNav';
-import { Form, Field, FormElement } from "@progress/kendo-react-form";
-import { Input } from "@progress/kendo-react-inputs";
 import { useSelector, useDispatch } from 'react-redux';
-import { Button } from "@progress/kendo-react-buttons";
 import { RadioGroup } from "@progress/kendo-react-inputs";
 import { quizActions } from '../redux/actions';
 
 
 export default function ViewQuiz() {
     const params = useParams();
-    const history = useHistory();
     const dispatch = useDispatch();
 
     useEffect(() => {
         dispatch(quizActions.getDeckbyId(params.id));
-    }, [dispatch]);
+    }, [dispatch, params.id]);
 
     let quiz_id = params.id
 
     const single_deck = useSelector(state => state.quiz.single_deck);
     console.log("single_deck", single_deck)
 
-    const data = [
-        {
-            label: "Female",
-            value: "female",
-        },
-        {
-            label: "Male",
-            value: "male",
-        },
-        {
-            label: "Other",
-            value: "other",
-        },
-    ];
+    function createTableData(dataToMap) {
+		if (Array.isArray(dataToMap)) {
+			let outputArray = [];
+			dataToMap.map((option, i) => {
+				let singleRowArray = {
+					label: option.value,
+					value: option.value,
+				}
+				outputArray.push(singleRowArray);
+				return true;
+			});
+			return outputArray;
+		}
+
+	}
 
 
-    const handleSubmit = (dataItem) => alert(JSON.stringify(dataItem, null, 2));
     return (
         <App className="main-content-padding">
 
@@ -54,8 +48,8 @@ export default function ViewQuiz() {
 
                         <div style={{ background: "white", padding: '30px' }}>
                             <div className="k-hbox k-justify-content-between mb-4">
-                                <a href="/my-quizes">Back to My Quizes</a>
-                                <a href={`/test/${quiz_id}`}>Take Quiz</a>
+                                <a href="/my-quizes" className="k-button k-button-outline k-primary">Back to My Quizes</a>
+                                <a href={`/test/${quiz_id}`} className="k-button k-button-primary">Take Quiz</a>
                             </div>
                             <div className="quiz-preview-wrapper">
                             {single_deck && single_deck.length > 0 &&
@@ -71,7 +65,7 @@ export default function ViewQuiz() {
                                         <div className="single-quiz-block">
                                             <h5>Question {index + 1}</h5>
                                             <h4>{question.title}</h4>
-                                            <RadioGroup data={data} />
+                                            <RadioGroup data={createTableData(question.questionoptions)} />
                                         </div>
                                     )) : ''
                                 }

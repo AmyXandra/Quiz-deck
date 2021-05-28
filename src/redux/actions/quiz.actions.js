@@ -79,7 +79,7 @@ function getUserDeck() {
 }
 
 
-function createQuizQuestion(dataItem,deckId) {
+function createQuizQuestion(dataItem,deckId,setVisible) {
     return dispatch => {
         dispatch(request());
         quizService.createQuizQuestion(dataItem,deckId)
@@ -92,6 +92,7 @@ function createQuizQuestion(dataItem,deckId) {
                     // getDeckbyId(deckId);
                     // setvisible(false);
                     // dispatch(alertActions.success("Order was created!"));
+                    setVisible(false);
                 },
                 error => {
                     dispatch(failure(error.toString()));

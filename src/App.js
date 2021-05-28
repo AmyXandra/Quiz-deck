@@ -4,7 +4,7 @@ import { BrowserRouter, Switch, Route } from "react-router-dom";
 import Login from './components/auth/Login';
 import Register from './components/auth/Register';
 import Landing from './components/Landing';
-import Dashboard from './components/Dashboard';
+// import Dashboard from './components/Dashboard';
 import CreateQuiz from './components/CreateQuiz';
 import MyQuizes from './components/MyQuizes';
 import ViewQuiz from './components/ViewQuiz';
@@ -21,7 +21,7 @@ function App() {
             <Route exact path="/" component={Landing} />
             <Route path="/login" component={Login} />
             <Route path="/register" component={Register} />
-            <Route path="/dashboard" component={Dashboard} />
+            {/* <Route path="/dashboard" component={Dashboard} /> */}
             <Route path="/create" component={CreateQuiz} />
             <Route path="/my-quizes" component={MyQuizes} />
             <Route path="/test/:id" component={TakeQuiz} />

@@ -12,7 +12,7 @@ export default function TrueOrFalse() {
 
     return <div>
         <button className="k-button" disabled onClick={toggleDialog}>
-            <div>
+            <div className="option-img">
                 <img src={TrueFalse} alt="multiple-option" />
                 True or False
             </div>

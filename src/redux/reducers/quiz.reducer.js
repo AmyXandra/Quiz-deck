@@ -4,7 +4,7 @@ let initialState = {
     new_deck: {},
     creating: false,
     loading: false,
-    single_deck: {}
+    single_deck: []
 }
 
 export function quiz(state = initialState, action) {

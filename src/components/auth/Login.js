@@ -5,7 +5,7 @@ import { Input } from '@progress/kendo-react-inputs';
 import {AuthImage} from '../images/Images';
 import {userActions} from '../../redux/actions';
 import { useLocation } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux'; 
+import { useDispatch } from 'react-redux'; 
 
 
 export default function Login() {
